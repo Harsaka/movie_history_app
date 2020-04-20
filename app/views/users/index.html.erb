@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Movie Histories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Theater</th>
+      <th>Date and time</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.title %></td>
+        <td><%= user.theater %></td>
+        <td><%= user.date_and_time %></td>
+        <td><%= user.comment %></td>
+        <td><%= link_to 'Show', user %></td>
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add new movie history', new_user_path %>
